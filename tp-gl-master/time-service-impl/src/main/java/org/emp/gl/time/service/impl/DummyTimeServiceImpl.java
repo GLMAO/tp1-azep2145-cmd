@@ -1,4 +1,4 @@
-package org.emp.gl.timer.service.impl;
+package org.emp.gl.time.service.impl;
 
 
 import java.time.LocalTime;
@@ -98,11 +98,15 @@ public class DummyTimeServiceImpl implements TimerService {
     }
 
     // Méthode utilitaire : notifie tous les observateurs
-    private void notifyListeners(String property, Object oldValue, Object newValue) {
-        for (TimerChangeListener listener : listeners) {
-            listener.propertyChange(property, oldValue, newValue);
-        }
+    // Méthode utilitaire : notifie tous les observateurs
+private void notifyListeners(String property, Object oldValue, Object newValue) {
+    //  Iterate over a copy to allow safe removal during notification
+    List<TimerChangeListener> listenersCopy = new LinkedList<>(listeners);
+    for (TimerChangeListener listener : listenersCopy) {
+        listener.propertyChange(property, oldValue, newValue);
     }
+}
+
 
     // === Getters ===
     @Override
