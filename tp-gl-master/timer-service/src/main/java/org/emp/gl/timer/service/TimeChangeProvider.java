@@ -15,3 +15,4 @@ public interface TimeChangeProvider {
 
     public void removeTimeChangeListener(TimerChangeListener pl);
 }
+

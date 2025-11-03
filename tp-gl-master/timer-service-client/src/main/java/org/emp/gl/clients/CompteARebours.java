@@ -1,5 +1,6 @@
 package org.emp.gl.clients;
 
+import java.beans.PropertyChangeEvent;
 import org.emp.gl.timer.service.TimerChangeListener;
 import org.emp.gl.timer.service.TimerService;
 
@@ -17,15 +18,20 @@ public class CompteARebours implements TimerChangeListener {
     }
 
     @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        propertyChange(evt.getPropertyName(), evt.getOldValue(), evt.getNewValue());
+    }
+
+  
+    @Override
     public void propertyChange(String property, Object oldValue, Object newValue) {
-        // We decrease counter every second
         if (property.equals(TimerChangeListener.SECONDE_PROP)) {
             counter--;
             System.out.println(name + " countdown: " + counter);
-            
+
             if (counter <= 0) {
                 System.out.println(name + " finished!");
-                service.removeTimeChangeListener(this); // ✅ Unsubscribe at 0
+                service.removeTimeChangeListener(this); // Se désinscrit quand fini
             }
         }
     }

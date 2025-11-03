@@ -2,6 +2,7 @@ package org.emp.gl.clients;
 
 import org.emp.gl.timer.service.TimerChangeListener;
 import org.emp.gl.timer.service.TimerService;
+import java.beans.PropertyChangeEvent;
 
 /**
  * La classe Horloge agit comme un "Observer".
@@ -21,11 +22,18 @@ public class Horloge implements TimerChangeListener {
         System.out.println("Horloge " + name + " initialisée et abonnée !");
     }
 
+    // Méthode de TimerChangeListener
     @Override
     public void propertyChange(String propertyName, Object oldValue, Object newValue) {
         if (TimerChangeListener.SECONDE_PROP.equals(propertyName)) {
             afficherHeure();
         }
+    }
+
+    // Méthode imposée par PropertyChangeListener
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        propertyChange(evt.getPropertyName(), evt.getOldValue(), evt.getNewValue());
     }
 
     private void afficherHeure() {

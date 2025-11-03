@@ -12,19 +12,19 @@ public class App {
 
     public static void main(String[] args) {
         TimerService timer = new DummyTimeServiceImpl();
-        new CompteARebours("fr", 2, timer);
-        new CompteARebours("fr", 17, timer);
-        new CompteARebours("fr", 14, timer);
-        new CompteARebours("fr", 11, timer);
-        new CompteARebours("fr", 19, timer);
-        new CompteARebours("fr", 14, timer);
-        new CompteARebours("fr", 16, timer);
-        new CompteARebours("fr", 12, timer);
-        new CompteARebours("fr", 13, timer);
-        new CompteARebours("fr", 18, timer);
-        new CompteARebours("fr", 16, timer);
-        new CompteARebours("fr", 10, timer);
-        new CompteARebours("fr", 13, timer);
+        new CompteARebours("fr1", 2, timer);
+        new CompteARebours("fr2", 17, timer);
+        new CompteARebours("fr3", 14, timer);
+        new CompteARebours("fr4", 11, timer);
+        new CompteARebours("fr5", 19, timer);
+        new CompteARebours("fr6", 14, timer);
+        new CompteARebours("fr7", 16, timer);
+        new CompteARebours("fr8", 12, timer);
+        new CompteARebours("fr9", 13, timer);
+        new CompteARebours("fr10", 18, timer);
+        new CompteARebours("fr11", 16, timer);
+        new CompteARebours("fr12", 10, timer);
+        new CompteARebours("fr13", 13, timer);
     }
 
     private static void testDuTimeService() {
